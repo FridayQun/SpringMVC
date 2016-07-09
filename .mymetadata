@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="SpringMVCMany2ManyCRUD Maven Webapp"
+  id="myeclipse.1452863523651"
+  context-root="/SpringMVCMany2ManyCRUD"
+  j2ee-spec="6.0"
+  archive="SpringMVCMany2ManyCRUD Maven Webapp.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+
