@@ -2,14 +2,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: lenovo
-  Date: 2016/7/14
-  Time: 13:22
+  Date: 2016/7/15
+  Time: 20:03
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>查看用户</title>
+    <title>查看商品</title>
     <style>
         th {
             width: 140px;
@@ -31,15 +31,17 @@
         }
         td {
             height: 26px;
+            cursor: pointer;
             width: 140px;
             text-align: center;
             border: 1px solid;
             box-shadow: 0 0 2px #0F0;
             border-radius: 3px;
             margin: 0;
-            cursor: pointer;
         }
-        #users-list {
+        #role-list {
+            border: solid 1px;
+            box-shadow: 0 0 3px #0f0;
             width: 95%;
             position: absolute;
             left: 30px;
@@ -49,20 +51,22 @@
 </head>
 <body>
 <%@include file="menu.jsp"%>
-<table border=0 cellpadding="0" cellspacing="0" id="users-list">
+<table border=0 cellpadding="0" cellspacing="0" id="role-list">
     <thead>
-    <tr><th>用户名</th>
-        <th>员工姓名</th>
-        <th>角色名称</th>
-        <th>用户组名称</th></tr>
+    <tr><th>商品编码</th>
+        <th>商品名称</th>
+        <th>商品规格</th>
+        <th>商品进价</th>
+        <th>更新时间</th></tr>
     </thead>
     <tbody>
-    <c:forEach var="item" items="${requestScope.users}">
+    <c:forEach var="item" items="${wares}">
         <tr>
-            <td>${item.userName}</td>
-            <td>${item.employeeName}</td>
-            <td>${item.roleByUserRoleId.roleName}</td>
-            <td>${item.userGroupByUserGroupId.groupName}</td>
+            <td>${item.wareCode}</td>
+            <td>${item.wareName}</td>
+            <td>${item.wareNorm}</td>
+            <td>${item.wareBasePrice}</td>
+            <td>${item.lastTime}</td>
         </tr>
     </c:forEach>
     </tbody>

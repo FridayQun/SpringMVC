@@ -3,6 +3,7 @@ package com.yiibai.springmvc.dao;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
@@ -24,6 +25,12 @@ public abstract class AbstractDao<PK extends Serializable, T> {
 
     protected Session getSession(){
         return sessionFactory.getCurrentSession();
+    }
+
+    public void insert(T t) {
+        Transaction ts = getSession().beginTransaction();
+        getSession().save(t);
+        ts.commit();
     }
 
     public T getByKey(PK key){

@@ -17,14 +17,19 @@
 </head>
 
 <body>
-
+<%
+    if(request.getAttribute("success") != null) {
+        out.print("<script>alert('导入成功');</script>");
+    }
+%>
+<%@include file="menu.jsp"%>
 <div class="generic-container">
     <div class="well lead">ROLE ADD</div>
-    <form:form method="post" modelAttribute="role" class="form-horizontal" >
+    <form:form method="post" modelAttribute="role" class="form-horizontal" action="/roleadd">
 
         <div class="row">
             <div style="display:inline-block">
-                <label class="col-md-3 control-label" for="roleName">角色名称：</label>
+                <label class="col-md-3 control-label" for="roleName" style="width: 200px;">角色名称：</label>
             </div>
             <div style="display:inline-block">
                 <form:input path="roleName" type="text" id="roleName" class="form-control input-sm"></form:input>
@@ -36,7 +41,7 @@
 
         <div class="row">
                 <div style="display:inline-block">
-                    <label class="col-md-3 control-label" for="roleDesc">角色描述：</label>
+                    <label class="col-md-3 control-label" for="roleDesc" style="width: 200px;">角色描述：</label>
                 </div>
             <div style="display:inline-block">
                 <form:input path="roleDesc" type="text" id="roleDesc" class="form-control input-sm"></form:input>
@@ -48,7 +53,7 @@
 
         <div class="row">
             <div style="display:inline-block">
-                <label class="col-md-3 control-label" style="width: 75px;">角色权限：</label>
+                <label class="col-md-3 control-label" style="width: 200px;" >角色权限：</label>
             </div>
             <div style="display:inline-block">
                 <label class="checkbox-inline">

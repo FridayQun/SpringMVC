@@ -3,7 +3,7 @@ package com.yiibai.springmvc.model;
 import javax.persistence.*;
 
 /**
- * Created by lenovo on 2016/7/9.
+ * Created by lenovo on 2016/7/14.
  */
 @Entity
 @Table(name = "users", schema = "xurong")
@@ -17,6 +17,7 @@ public class UsersEntity {
     private Long leaderId;
     private String userStatus;
     private RoleEntity roleByUserRoleId;
+    private UserGroupEntity userGroupByUserGroupId;
 
     @Id
     @Column(name = "USER_ID")
@@ -126,5 +127,15 @@ public class UsersEntity {
 
     public void setRoleByUserRoleId(RoleEntity roleByUserRoleId) {
         this.roleByUserRoleId = roleByUserRoleId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "USER_GROUP_ID", referencedColumnName = "GROUP_ID")
+    public UserGroupEntity getUserGroupByUserGroupId() {
+        return userGroupByUserGroupId;
+    }
+
+    public void setUserGroupByUserGroupId(UserGroupEntity userGroupByUserGroupId) {
+        this.userGroupByUserGroupId = userGroupByUserGroupId;
     }
 }

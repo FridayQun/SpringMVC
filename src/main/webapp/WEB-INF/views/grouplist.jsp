@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>查看用户</title>
+    <title>查看用户组</title>
     <style>
         th {
             width: 140px;
@@ -31,15 +31,17 @@
         }
         td {
             height: 26px;
+            cursor: pointer;
             width: 140px;
             text-align: center;
             border: 1px solid;
             box-shadow: 0 0 2px #0F0;
             border-radius: 3px;
             margin: 0;
-            cursor: pointer;
         }
-        #users-list {
+        #group-list {
+            border: solid 1px;
+            box-shadow: 0 0 3px #0f0;
             width: 95%;
             position: absolute;
             left: 30px;
@@ -49,20 +51,22 @@
 </head>
 <body>
 <%@include file="menu.jsp"%>
-<table border=0 cellpadding="0" cellspacing="0" id="users-list">
+<table border=0 cellpadding="0" cellspacing="0" id="group-list">
     <thead>
-    <tr><th>用户名</th>
-        <th>员工姓名</th>
-        <th>角色名称</th>
-        <th>用户组名称</th></tr>
+    <tr><th>编号</th>
+        <th>组名</th>
+        <th>负责人</th>
+        <th>上级编号</th>
+        <th>组权限</th></tr>
     </thead>
     <tbody>
-    <c:forEach var="item" items="${requestScope.users}">
+    <c:forEach var="item" items="${groups}">
         <tr>
-            <td>${item.userName}</td>
-            <td>${item.employeeName}</td>
-            <td>${item.roleByUserRoleId.roleName}</td>
-            <td>${item.userGroupByUserGroupId.groupName}</td>
+            <td>${item.groupId}</td>
+            <td>${item.groupName}</td>
+            <td>${item.groupLeader}</td>
+            <td>${item.parentId}</td>
+            <td>${item.groupDesc}</td>
         </tr>
     </c:forEach>
     </tbody>
